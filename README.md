@@ -1,2 +1,2 @@
-### CIS289 Final Project
-Django Blog App
+### CIS289 Python Final Project
+A simple Django Blog App
