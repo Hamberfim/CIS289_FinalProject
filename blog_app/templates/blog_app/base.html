@@ -1,0 +1,22 @@
+<!-- to hide from django wrapp with {#% %#} -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ page_title|title }} {{ topic|title }}</title>
+    {% block meta_tags %}{% endblock %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="header">
+        <h1>dj Blog {{ page_title|title }} {{ topic|title }}</h1>
+    </div>
+    <h3>
+        <a href="{% url 'blog_app:index' %}">Home</a> |
+        <a href="{% url 'blog_app:topics' %}">Blog Topics</a> |
+    </h3>
+    {% block content %}{% endblock content %}
+</body>
+</html>

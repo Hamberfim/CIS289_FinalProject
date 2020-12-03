@@ -12,3 +12,17 @@ class Topic(models.Model):
 
     def __str__(self):
         return self.text
+
+
+class Entry(models.Model):
+    """A specific blog entry related to an existing topic."""
+    topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
+    text = models.TextField()
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = 'entries'  # correct display so it doesn't show up as 'entrys'
+
+    def __str__(self):
+        """Return a string representation of the model."""
+        return f"{self.text[:50]}..."
