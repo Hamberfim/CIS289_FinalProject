@@ -1,2 +1,2 @@
-# CIS289_FinalProject
+### CIS289 Final Project
 Django Blog App
