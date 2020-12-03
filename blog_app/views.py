@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from .models import Topic
+from .models import Entry
 from .forms import TopicForm
 from .forms import EntryForm
 
@@ -27,18 +28,18 @@ def topic(request, topic_id):
 
 
 def new_topic(request):
-    """add new topic - by a user"""
+    """Add a new topic."""
     if request.method != 'POST':
-        # if no data is submitted create a blank form
+        # No data submitted; create a blank form.
         form = TopicForm()
     else:
-        # else submit data and process form
+        # POST data submitted; process data.
         form = TopicForm(data=request.POST)
         if form.is_valid():
             form.save()
             return redirect('blog_app:topics')
 
-    # display a blank or an invalid form
+    # Display a blank or invalid form.
     content = {'form': form}
     return render(request, 'blog_app/new_topic.html', content)
 
@@ -66,7 +67,7 @@ def new_entry(request, topic_id):
 
 def edit_entry(request, entry_id):
     """Edit an existing blog entry."""
-    entry = EntryForm.objects.get(id=entry_id)
+    entry = Entry.objects.get(id=entry_id)
     topic = entry.topic
 
     if request.method != 'POST':
