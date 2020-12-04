@@ -7,7 +7,7 @@
     <p>Your name and/or password did not match. Please try again.</p>
 {% endif %}
 
-<P>To access publishing feature of this site you must be logged in.</P>
+<P>To access blog publishing feature of this site you must be logged in.</P>
 <form method="post" action="{% url 'users:login' %}">
     {% csrf_token %}
     {{ form.as_p}}

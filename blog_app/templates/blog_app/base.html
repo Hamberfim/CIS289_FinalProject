@@ -10,22 +10,28 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
+    <!-- masthead start -->
     <div class="header">
         <h1>dj Blog {{ page_title|title }} {{ topic|title }}</h1>
     </div>
-    <h3>
-        <a href="{% url 'blog_app:index' %}">Home</a> |
-        <a href="{% url 'blog_app:topics' %}">Blog Authors Area</a> |
-        <!-- is user logged in -->
-        {% if user.is_authenticated %}
-            <a href="{% url 'users:logout' %}">Log Out</a> |
-            <p>Hello, {{ user.username }}.</p>
-        {% else %}
-            <a href="{% url 'users:register' %}">Register</a> |
-            <a href="{% url 'users:login' %}">Log In</a>
-        {% endif %}
-    </h3>
-
+    <!-- masthead end -->
+    <!-- navigation start -->
+    <div class="navbar">
+        {% with request.resolver_match.url_name as url_name %}
+            <a href="{% url 'blog_app:index' %}">Home</a>
+            <a href="{% url 'blog_app:topics' %}">Bloggers Area</a>
+            <!-- is user logged in -->
+            {% if user.is_authenticated %}
+                <a href="{% url 'users:logout' %}">Log Out</a>
+                <a href="" class="dead_nav_space">&nbsp;&nbsp;</a>
+                <a href="" class="user_auth_display">&nbsp;&nbsp;&nbsp;:)&nbsp; Hello, {{ user.username }} &nbsp;&nbsp;&nbsp;</a>
+            {% else %}
+                <a href="{% url 'users:register' %}">Register</a>
+                <a href="{% url 'users:login' %}">Log In</a>
+            {% endif %}
+        {% endwith %}
+    </div>
+    <!-- navigation end -->
 
     {% block content %}
 
