@@ -2,20 +2,26 @@
 {%load static %}
 {% block content %}
 <div>
- <p>Blog Topics</p>
+    <h3>Blog Topics</h3>
 
 <ul>
-    {% for topic in topics %}
-        <li>
-            <a href="{% url 'blog_app:pub_topic' topic.id %}">{{ topic }}</a>
-        </li>
-    {% empty %}
-        <li>No Blog Topics have been added yet.</li>
-    {% endfor %}
+    {% if request.user.is_owner %}
+        {% for topic in topics %}
+            <li>
+                <a href="{% url 'blog_app:topic' topic.id %}">{{ topic }}</a>
+            </li>
+        {% empty %}
+            <li>No Blog Topics have been added yet.</li>
+        {% endfor %}
+    {% else %}
+        {% for topic in topics %}
+            <li>
+                <a href="{% url 'blog_app:pub_topic' topic.id %}">{{ topic }}</a>
+            </li>
+        {% empty %}
+            <li>No Blog Topics have been added yet.</li>
+        {% endfor %}
+    {% endif %}
 </ul>
-
- <h1>This is a Heading</h1>
- <p>This is a paragraph.</p>
- <p>This is another paragraph.</p>
 </div>
 {% endblock content %}
