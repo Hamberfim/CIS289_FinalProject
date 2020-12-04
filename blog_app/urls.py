@@ -9,6 +9,8 @@ urlpatterns = [
     path('', views.index, name='index'),
     # show all topics
     path('topics/', views.topics, name='topics'),
+    # public detail page of a topic
+    path('pub_topic/<int:topic_id>/', views.pub_topic, name='pub_topic'),
     # detail page of a topic
     path('topic/<int:topic_id>/', views.topic, name='topic'),
     # page for adding new topics by the users
