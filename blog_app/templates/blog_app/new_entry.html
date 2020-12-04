@@ -6,10 +6,10 @@
 
 <p>Add a new blog entry for this topic:</p>
 <form action="{% url 'blog_app:new_entry' topic.id %}" method='post'>
-{% csrf_token %}
+    {% csrf_token %}
     {{ form.media }}
-{{ form.as_p }}
-<button name='submit'>Add entry</button>
+    {{ form.as_p }}
+    <button name='submit'>Add entry</button>
 </form>
 
 {% endblock content %}

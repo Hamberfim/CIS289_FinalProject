@@ -31,9 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-# my apps -  here in case we need to override any behaviors of the default apps
+    # my apps -  here in case we need to override any behaviors of the default apps
     'blog_app',
     'ckeditor',
+    'users_app',
 
     # default Django app upon setup
     'django.contrib.admin',

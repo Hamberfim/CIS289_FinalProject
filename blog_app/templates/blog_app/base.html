@@ -1,4 +1,4 @@
-<!-- to hide from django wrapp with {#% %#} -->
+<!-- to hide from django, wrap with {#% %#} -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +16,16 @@
     <h3>
         <a href="{% url 'blog_app:index' %}">Home</a> |
         <a href="{% url 'blog_app:topics' %}">Blog Topics</a> |
+        <!-- is user logged in -->
+        {% if user.is_authenticated %}
+            <a href="{% url 'users:logout' %}">Log Out</a> |
+            <p>Hello, {{ user.username }}.</p>
+        {% else %}
+            <a href="{% url 'users:login' %}">Log In</a> |
+        {% endif %}
     </h3>
+
+
     {% block content %}{% endblock content %}
 </body>
 </html>
