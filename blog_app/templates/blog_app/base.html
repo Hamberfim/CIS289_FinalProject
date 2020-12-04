@@ -21,6 +21,7 @@
             <a href="{% url 'users:logout' %}">Log Out</a> |
             <p>Hello, {{ user.username }}.</p>
         {% else %}
+            <a href="{% url 'users:register' %}">Register</a> |
             <a href="{% url 'users:login' %}">Log In</a> |
         {% endif %}
     </h3>
