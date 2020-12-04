@@ -15,12 +15,14 @@ def index(request):
     content = {"topics": topics}
     return render(request, 'blog_app/index.html', content)
 
+
 def pub_topic(request, topic_id):
     """Show a Single Blog Topic and all its Blog Entries"""
     topic = Topic.objects.get(id=topic_id)
     entries = topic.entry_set.order_by('-date_added')
     content = {"topic": topic, "entries": entries}
     return render(request, 'blog_app/public_topic.html', content)
+
 
 @login_required
 def topics(request):
@@ -30,6 +32,7 @@ def topics(request):
     content = {"topics": topics}
     return render(request, 'blog_app/blog_topics.html', content)
 
+
 @login_required
 def topic(request, topic_id):
     """Show a Single Blog Topic and all its Blog Entries"""
@@ -37,6 +40,7 @@ def topic(request, topic_id):
     entries = topic.entry_set.order_by('-date_added')
     content = {"topic": topic, "entries": entries}
     return render(request, 'blog_app/blog_topic.html', content)
+
 
 @login_required
 def new_topic(request):
@@ -56,6 +60,7 @@ def new_topic(request):
     # Display a blank or invalid form.
     content = {'form': form}
     return render(request, 'blog_app/new_topic.html', content)
+
 
 @login_required
 def new_entry(request, topic_id):
@@ -77,6 +82,7 @@ def new_entry(request, topic_id):
     # Display a blank or invalid form.
     content = {'topic': topic, 'form': form}
     return render(request, 'blog_app/new_entry.html', content)
+
 
 @login_required
 def edit_entry(request, entry_id):
