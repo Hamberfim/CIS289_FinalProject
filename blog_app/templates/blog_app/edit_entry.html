@@ -9,6 +9,7 @@
     
   <form action="{% url 'blog_app:edit_entry' entry.id %}" method='post'>
     {% csrf_token %}
+    {{ form.media }}
     {{ form.as_p }}
     <button name="submit">Save changes</button>
   </form>

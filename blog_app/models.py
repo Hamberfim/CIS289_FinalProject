@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 
 # Create your models here.
@@ -17,7 +18,8 @@ class Topic(models.Model):
 class Entry(models.Model):
     """A specific blog entry related to an existing topic."""
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
-    text = models.TextField()
+    # text = models.TextField()
+    text = RichTextField(blank=True, null=True)
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
