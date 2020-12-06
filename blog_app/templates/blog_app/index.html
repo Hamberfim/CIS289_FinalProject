@@ -4,25 +4,33 @@
 <div>
     <h3>Blog Topics</h3>
 </div>
-<div>
-<ul>
-    {% if request.user.is_authenticated.is_owner %}
-        {% for topic in topics %}
-            <li>
-                <a href="{% url 'blog_app:topic' topic.id %}">{{ topic }}</a>
-            </li>
-        {% empty %}
-            <li>No Blog Topics have been added yet.</li>
-        {% endfor %}
-    {% else %}
-        {% for topic in topics %}
-            <li>
-                <a href="{% url 'blog_app:pub_topic' topic.id %}">{{ topic }}</a>
-            </li>
-        {% empty %}
-            <li>No Blog Topics have been added yet.</li>
-        {% endfor %}
-    {% endif %}
-</ul>
+<div class="cards">
+    <ul>
+        {% if request.user.is_authenticated.is_owner %}
+            {% for topic in topics %}
+                <li class="card">
+                    <div class="img"><img src="{% static 'jeep.jpg' %}" alt=""></div>
+                    <div class="text">
+                        <h4><a href="{% url 'blog_app:topic' topic.id %}">{{ topic }}</a></h4>
+                        <p>{% lorem 6 w random %}...</p>
+                    </div>
+                </li>
+            {% empty %}
+                <li class="card">No Blog Topics have been added yet.</li>
+            {% endfor %}
+        {% else %}
+            {% for topic in topics %}
+                <li class="card">
+                    <div class="img"><img src="{% static 'jeep.jpg' %}" alt=""></div>
+                    <div class="text">
+                        <h4><a href="{% url 'blog_app:pub_topic' topic.id %}">{{ topic }}</a></h4>
+                        <p>{% lorem 6 w random %}...</p>
+                    </div>
+                </li>
+            {% empty %}
+                <li class="card">No Blog Topics have been added yet.</li>
+            {% endfor %}
+        {% endif %}
+    </ul>
 </div>
 {% endblock content %}

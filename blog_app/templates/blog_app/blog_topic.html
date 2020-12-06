@@ -2,6 +2,7 @@
 {%load static %}
 {% block content %}
 
+<p><a href="{% url 'blog_app:index' %}">Back to Blog Topic List</a></p>
 <h3>{{ topic }} Blog Entries:</h3>
 <p><a href="{% url 'blog_app:new_entry' topic.id %}">Add a New Entry under this Topic</a></p>
 

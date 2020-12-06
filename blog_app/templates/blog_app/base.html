@@ -32,9 +32,15 @@
         {% endwith %}
     </div>
     <!-- navigation end -->
-
+    <div class="outerContainer">
+        <div class="innerContainer">
     {% block content %}
 
     {% endblock content %}
+        </div>
+    </div>
+    <div class="footer">
+        <h1>{{ page_title|title }} {{ topic|title }}&nbsp;|&nbsp;dj Blog &#169;2020&nbsp;&nbsp;</h1>
+    </div>
 </body>
 </html>
