@@ -11,14 +11,15 @@
 </head>
 <body>
     <!-- masthead start -->
-    <hr class="hoz_black_line">
     <div class="header">
-        <h1>Marble Rye blog {{ page_title|title }} {{ topic|title }}</h1>
+        <h1>{{ page_title|title }} {{ topic|title }} * Blah blah blog </h1>
     </div>
     <hr class="hoz_black_line">
+    <div class="header_base">
+        <h1></h1>
+    </div>
     <!-- masthead end -->
     <!-- navigation start -->
-    <hr class="hoz_ac_line">
     <div class="navbar">
         {% with request.resolver_match.url_name as url_name %}
             <a href="{% url 'blog_app:index' %}">Home</a>
@@ -42,8 +43,10 @@
     {% endblock content %}
         </div>
     </div>
+    <div class="footer_cap"></div>
+    <hr class="hoz_ac_line">
     <div class="footer">
-        <h1>{{ page_title|title }} {{ topic|title }}&nbsp;|&nbsp;Marble Rye blog &#169;2020&nbsp;&nbsp;</h1>
+        <h1>{{ page_title|title }} {{ topic|title }}&nbsp;*&nbsp;Blah blah blog &#169;2020&nbsp;&nbsp;</h1>
     </div>
 </body>
 </html>
