@@ -9,44 +9,48 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
-<body>
-    <!-- masthead start -->
-    <div class="header">
-        <h1>{{ page_title|title }} {{ topic|title }} * Blah blah blog </h1>
-    </div>
-    <hr class="hoz_black_line">
-    <div class="header_base">
-        <h1></h1>
-    </div>
-    <!-- masthead end -->
-    <!-- navigation start -->
-    <div class="navbar">
-        {% with request.resolver_match.url_name as url_name %}
-            <a href="{% url 'blog_app:index' %}">Home</a>
-            <a href="{% url 'blog_app:topics' %}">Bloggers Area</a>
-            <!-- is user logged in -->
-            {% if user.is_authenticated %}
-                <a href="{% url 'users:logout' %}">Log Out</a>
-                <a href="" class="dead_nav_space">&nbsp;&nbsp;</a>
-                <a href="" class="user_auth_display">&nbsp;&nbsp;&nbsp;:)&nbsp; Hello, {{ user.username }} &nbsp;&nbsp;&nbsp;</a>
-            {% else %}
-                <a href="{% url 'users:register' %}">Register</a>
-                <a href="{% url 'users:login' %}">Log In</a>
-            {% endif %}
-        {% endwith %}
-    </div>
-    <!-- navigation end -->
-    <div class="outerContainer">
-        <div class="innerContainer">
-    {% block content %}
+<body class="bdy_bkg_shape">
+<!-- masthead start -->
+<div class="header">
+    <h1>{{ page_title|title }} {{ topic|title }} * Blah blah blog </h1>
+</div>
+<hr class="hoz_black_line">
+<hr class="hoz_P_thin">
+<hr class="hoz_black_thin">
+<div class="header_base">
+    <h1></h1>
+</div>
+<!-- masthead end -->
+<!-- navigation start -->
+<div class="navbar">
+    {% with request.resolver_match.url_name as url_name %}
+    <a href="{% url 'blog_app:index' %}">Home</a>
+    <a href="{% url 'blog_app:topics' %}">Bloggers Area</a>
+    <!-- is user logged in -->
+    {% if user.is_authenticated %}
+    <a href="{% url 'users:logout' %}">Log Out</a>
+    <a href="" class="dead_nav_space">&nbsp;&nbsp;</a>
+    <a href="" class="user_auth_display">&nbsp;&nbsp;&nbsp;:)&nbsp; Hello, {{ user.username }} &nbsp;&nbsp;&nbsp;</a>
+    {% else %}
+    <a href="{% url 'users:register' %}">Register</a>
+    <a href="{% url 'users:login' %}">Log In</a>
+    {% endif %}
+    {% endwith %}
+</div>
+<!-- navigation end -->
+<div class="outerContainer">
+    <div class="innerContainer">
+        {% block content %}
 
-    {% endblock content %}
-        </div>
+        {% endblock content %}
     </div>
-    <div class="footer_cap"></div>
-    <hr class="hoz_ac_line">
-    <div class="footer">
-        <h1>{{ page_title|title }} {{ topic|title }}&nbsp;*&nbsp;Blah blah blog &#169;2020&nbsp;&nbsp;</h1>
-    </div>
+</div>
+<div class="footer_cap"></div>
+<hr class="hoz_ac_line">
+<hr class="hoz_P_thin">
+<hr class="hoz_black_thin">
+<div class="footer">
+    <h1>{{ page_title|title }} {{ topic|title }}&nbsp;*&nbsp;Blah blah blog &#169;2020&nbsp;&nbsp;</h1>
+</div>
 </body>
 </html>
