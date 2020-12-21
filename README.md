@@ -1,5 +1,8 @@
 ### CIS289 Python Final Project
-A simple Django Blog App
+A Simple Django Blog App
 
-Final Project Presentation
-https://www.screencast.com/t/MNLSCyA0ae
+![Alt](https://github.com/Hamberfim/CIS289_FinalProject/blob/main/01publicuser.png "Public View")
+
+![Alt](https://github.com/Hamberfim/CIS289_FinalProject/blob/main/02bloggeruser.png "Bloggers View")
+
+![Alt](https://github.com/Hamberfim/CIS289_FinalProject/blob/main/03bloggereditor.png "Blogger Editor View")
